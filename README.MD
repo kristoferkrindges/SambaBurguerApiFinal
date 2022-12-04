@@ -11,7 +11,7 @@ da respectiva empresa SambaBurguer.
 
 ## ENTIDADES da Api
 
-1. Customer (Clientes) <br>
+1. Customer (Cliente) <br>
 2. Employee (Funcionário) <br>
 3. Product (Produto) <br>
 4. Shop (Franquia) <br>
