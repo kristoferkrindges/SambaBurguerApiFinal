@@ -39,7 +39,7 @@ Api criada em C# com uso do framework web ASPNET CORE 7
 - https://localhost:7010/api/
 
 ## ENDPOINTS da API
-Cada uma das entidades terá 5 endpoints que irão representar o CRUD ( GET, POST, Put, Delete)
+Cada uma das entidades terá 5 endpoints que irão representar o CRUD ( GET, POST, PUT, DELETE)
 - GET: https://localhost:7010/api/[NomeDaEntidade] (GetAll)
 - GET: https://localhost:7010/api/[NomeDaEntidade]/id (GetForId)
 - POST: https://localhost:7010/api/[NomeDaEntidade] (Add)
