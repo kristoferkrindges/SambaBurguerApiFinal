@@ -20,8 +20,8 @@ namespace SambaBurguer.Models
         public string ImageUrl { get; set; }
         //public virtual List<Sale> Sales { get; set; }
         // Navegação
-        public ICollection<Sale> Sales = new List<Sale>();
-        //public List<Employee> Employees { get; set; }
+        //public ICollection<Sale> Sales = new List<Sale>();
+        //public virtual List<Employee> Employees { get; set; }
         public ICollection<Employee> Employees = new List<Employee>();
     }
 }

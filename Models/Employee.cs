@@ -9,8 +9,8 @@ namespace SambaBurguer.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public int ShopId { get; set; }
-        public virtual Shop Shop { get; set; }
+        public int? ShopId { get; set; }
+        public virtual Shop? Shop { get; set; }
         [Required]
         [StringLength(80)]
         public string Name { get; set; }
@@ -32,7 +32,9 @@ namespace SambaBurguer.Models
         public string ImageUrl { get; set; }
         [Required]
         [StringLength(200)]
-        public string Function { get; set; }
+        public string Type { get; set; }
+
+        //public ICollection<Sale> Sales = new List<Sale>();
 
     }
 }

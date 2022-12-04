@@ -14,12 +14,12 @@ namespace SambaBurguer.Repository
         }
         public async Task<Employee> GetForId(int id)
         {
-            return await _dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            return await _dbContext.Employees.Include(x => x.Shop).FirstOrDefaultAsync(x => x.Id == id);
             //return await _dbContext.Employees.Include(x => x.Shop).FirstOrDefaultAsync(x => x.Id == id);
         }
         public async Task<List<Employee>> GetAllEmployees()
         {
-            return await _dbContext.Employees.ToListAsync();
+            return await _dbContext.Employees.Include(x => x.Shop).ToListAsync();
             //return await _dbContext.Employees.Include(x => x.Shop).ToListAsync();
         }
 
@@ -45,7 +45,7 @@ namespace SambaBurguer.Repository
             employeeForId.Cpf = employee.Cpf;
             employeeForId.Gender = employee.Gender;
             employeeForId.ImageUrl = employee.ImageUrl;
-            employeeForId.Function = employee.Function;
+            employeeForId.Type = employee.Type;
 
             _dbContext.Employees.Update(employeeForId);
             await _dbContext.SaveChangesAsync();

@@ -14,12 +14,23 @@ namespace SambaBurguer.Repository
         }
         public async Task<Sale> GetForId(int id)
         {
-            return await _dbContext.Sales.FirstOrDefaultAsync(x => x.Id == id);
+            return await
+                (((((_dbContext.Sales.Include(x => x.Product))
+                .Include(x => x.Customer))
+                .Include(x => x.Employee))
+                .FirstOrDefaultAsync(x => x.Id == id)));
+            //return await _dbContext.Sales.FirstOrDefaultAsync(x => x.Id == id);
         }
         public async Task<List<Sale>> GetAllSale()
         {
-            return await _dbContext.Sales.ToListAsync();
+            //return await _dbContext.Sales.ToListAsync();
+            return await 
+                (((((_dbContext.Sales.Include(x => x.Product))
+                .Include(x => x.Customer))
+                .Include(x => x.Employee.Shop))
+                .ToListAsync()));
         }
+
    
         public async Task<Sale> Add(Sale sale)
         {
@@ -37,7 +48,7 @@ namespace SambaBurguer.Repository
             }
             saleForId.ProductId = sale.ProductId;
             saleForId.CustomerId = sale.CustomerId;
-            saleForId.ShopId = sale.ShopId;
+            saleForId.EmployeeId = sale.EmployeeId;
             saleForId.Date = sale.Date;
 
             _dbContext.Sales.Update(saleForId);

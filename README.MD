@@ -1,0 +1,3 @@
+# Documentação API SambaBurguer
+
+## Documentação

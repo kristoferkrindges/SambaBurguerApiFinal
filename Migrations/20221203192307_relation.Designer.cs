@@ -12,8 +12,8 @@ using SambaBurguer.Context;
 namespace SambaBurguer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221125224539_Image")]
-    partial class Image
+    [Migration("20221203192307_relation")]
+    partial class relation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -101,11 +101,6 @@ namespace SambaBurguer.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Function")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasMaxLength(80)
@@ -120,8 +115,14 @@ namespace SambaBurguer.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
-                    b.Property<int>("ShopId")
+                    b.Property<int?>("ShopId")
+                        .IsRequired()
                         .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
@@ -167,16 +168,19 @@ namespace SambaBurguer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CustomerId")
+                    b.Property<int?>("CustomerId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int?>("ProductId")
+                        .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<int>("ShopId")
+                    b.Property<int?>("ShopId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Id");

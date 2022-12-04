@@ -12,8 +12,8 @@ using SambaBurguer.Context;
 namespace SambaBurguer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221117010835_employeeFunction")]
-    partial class employeeFunction
+    [Migration("20221203194743_employe-relation")]
+    partial class employerelation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -101,11 +101,6 @@ namespace SambaBurguer.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Function")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasMaxLength(80)
@@ -120,8 +115,14 @@ namespace SambaBurguer.Migrations
                         .HasMaxLength(80)
                         .HasColumnType("nvarchar(80)");
 
-                    b.Property<int>("ShopId")
+                    b.Property<int?>("ShopId")
+                        .IsRequired()
                         .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
@@ -167,25 +168,28 @@ namespace SambaBurguer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CustomerId")
+                    b.Property<int?>("CustomerId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProductId")
+                    b.Property<int?>("EmployeeId")
+                        .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<int>("ShopId")
+                    b.Property<int?>("ProductId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("EmployeeId");
 
-                    b.HasIndex("ShopId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Sales");
                 });
@@ -207,6 +211,10 @@ namespace SambaBurguer.Migrations
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
                         .IsRequired()
@@ -237,23 +245,23 @@ namespace SambaBurguer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SambaBurguer.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SambaBurguer.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SambaBurguer.Models.Shop", "Shop")
-                        .WithMany()
-                        .HasForeignKey("ShopId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Customer");
 
-                    b.Navigation("Product");
+                    b.Navigation("Employee");
 
-                    b.Navigation("Shop");
+                    b.Navigation("Product");
                 });
 #pragma warning restore 612, 618
         }

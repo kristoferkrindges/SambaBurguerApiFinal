@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SambaBurguer.Context.Map;
 using SambaBurguer.Models;
 
 namespace SambaBurguer.Context
@@ -14,7 +15,10 @@ namespace SambaBurguer.Context
         public DbSet<Sale> Sales { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            modelBuilder.ApplyConfiguration(new EmployeeMap());
             base.OnModelCreating(modelBuilder);
+            
+
         }
 
     }

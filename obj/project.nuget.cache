@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xGmB0GfujvKbGBJPAsqbg48ca0eyaWY3MZmTkyOOEnl7idnd5BfHTaz9ZQRJplZli6s9l2oWdlZiULXJmB4uEA==",
+  "dgSpecHash": "IetSRKWl5PafwCXG/wI+PvkaxSThlsFcbF40CeKP5ZJCeO+Agh/UTmZ30tQUanZmpL9qLCt8d0plIcikD/VavA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kristofer\\Desktop\\Projetos\\SambaBurguer\\SambaBurguer\\SambaBurguer.csproj",
+  "projectFilePath": "C:\\Users\\Kristofer\\Desktop\\SambaBurguer\\SambaBurguer\\SambaBurguer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kristofer\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Kristofer\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
