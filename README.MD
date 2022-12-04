@@ -11,11 +11,11 @@ da respectiva empresa SambaBurguer.
 
 ## ENTIDADES da Api
 
-**1. Customer (Clientes) <br>
-**2. Employee (Funcionário) <br>
-**3. Product (Produto) <br>
-**4. Shop (Franquia) <br>
-**5. Sale (Venda)**  <br>
+1. Customer (Clientes) <br>
+2. Employee (Funcionário) <br>
+3. Product (Produto) <br>
+4. Shop (Franquia) <br>
+5. Sale (Venda)  <br>
 
 ## Relacionamentos e seus atributos das Entidades.
 ![Informações sobre Entidades](https://cdn.discordapp.com/attachments/1038889467689304137/1049055332716003429/relation_tables.png)
@@ -28,7 +28,7 @@ Api criada em C# com uso do framework web ASPNET CORE 7
 - EntityFrameWorkCore
 - Swagger
 
-## Pacotes NuGet instalados
+## Pacotes NuGets instalados
 - Microsoft.EntityFrameworkCore (7.0.0)
 - Microsoft.EntityFrameworkCore.Design (7.0.0)
 - Microsoft.EntityFrameworkCore.SqlServer (7.0.0)
